@@ -1,7 +1,7 @@
 ### INDICACIONES:
 * Este programa tiene dos versiones la principal que es el master y la segunda que es un codigo mejorado que esta en la rama DeberMejoradoConsola 
-* El Primer Deber consiste en una Aplicacion Web 
-* El Segundo consiste en una Consola que a su ves se conecta con una base de datos 
+* El Primer Deber consiste en una Aplicacion Web, (es el que hicimos en clases)
+* El Segundo consiste en una Consola que a su ves se conecta con una base de datos, (es el que hice yo)
 * PROGRAMACIÓN  ORIENTADA A OBJETOS EN C#
 * Matriculas Estudiantes
 
