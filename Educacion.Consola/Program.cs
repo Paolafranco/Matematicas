@@ -150,14 +150,15 @@ namespace Educacion.Consola
             Console.WriteLine();
             Console.WriteLine("---------------HILOS---------------");
             int numerosHilos = 0;
-            //Crea multiples hilos
+
+            //hilos multiples
             for (numerosHilos = 0; numerosHilos < 5; numerosHilos++)
             {
                 Thread hiloPrimero = new Thread(HiloPrincipal);
                 hiloPrimero.Start(numerosHilos);
             }
 
-            //Primer Hilo
+            // Hilo número 1
             int numero = 0;
             while (valores)
             {
@@ -171,7 +172,7 @@ namespace Educacion.Consola
 
 
         }
-        // Hilo/multiple
+        // Hilos
         static void HiloPrincipal(object entrada)
         {
             int incrementar = 0;
