@@ -12,6 +12,26 @@ namespace Educacion.Negocio.Entidades
         {
             base.Leer();
         }
+         
+        public int Id { get; set; }
 
+        //Metodos
+        public int Fibonacci(bool valor)
+        {
+
+            int x = 1, y = 0;
+            int resultado = 1;
+            Console.Out.WriteLine($"El Calculo Fibonacci : {1}");
+            for (int contador = 0; contador < 25; contador++)
+            {
+
+                resultado = x + y;
+                Console.Out.WriteLine($"El Calculo Fibonacci : {resultado}");
+                y = x;
+                x = resultado;
+            }
+
+            return Convert.ToInt32(resultado);
+        }
     }
 }

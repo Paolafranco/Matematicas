@@ -5,11 +5,13 @@ using Educacion.Negocio.Entidades;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices.ComTypes;
+using System.Threading;
 
 namespace Educacion.Consola
 {
     class Program
     {
+        private static bool valores = true;
         static void Main(string[] args)
         {
 
@@ -26,7 +28,8 @@ namespace Educacion.Consola
                 Apellido = "Franco"
             };
 
-            Console.WriteLine("Bienvenidos al Instituto");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("----------------------Bienvenidos al Instituto----------------------");
             Estudiante estudiante = new Estudiante
             {
                 Nombre = "Paola",
@@ -57,12 +60,17 @@ namespace Educacion.Consola
             Secretaria secretaria2 = new Secretaria();
             secretaria2.Matricular(estudiante, asignatura);
 
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine(secretaria3.Saludar(docente));
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Quisiera por favor saber cuantos alumnos se Matricularon el día de hoy de 9:00 am a 12:00 pm");
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($"Hay {Secretaria.Matriculados} estudiantes matriculados a esas horas");
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Muchas gracias, deme por favor sus nombres y el semestre en el que se encuentran");
             Console.WriteLine();
 
@@ -106,16 +114,19 @@ namespace Educacion.Consola
             var seconds = watch.Elapsed;
             var ticksTranscurridos = watch.ElapsedTicks;
 
+
             // Do the parallel loop.
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($"Por favor {secretaria3.Nombre} { secretaria3.Apellido} ,mandele los tiempos en tickes, seconds y en elapsed a la Ingeniera de Sistemas");
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"Buenos días, { secretaria2.Nombre} { secretaria2.Apellido} aquí le mando la lista de los tiempo que me solicito");
 
             Console.WriteLine();
             Console.WriteLine($"El tiempo en parallel de los 3 estudiantes es de: {ticksTranscurridos} , en tickes");
             Console.WriteLine($"El tiempo en parallel de los 3 estudiantes es de: {secondsTranscurridos} , en seconds");
             Console.WriteLine($"El tiempo en parallel de los 3 estudiantes es de: {seconds} , en elapsed");
-
+           
 
             for (int i = 0; i < matrizAxB.GetLength(0); i++)
             {
@@ -125,11 +136,52 @@ namespace Educacion.Consola
                     Console.Write($"{matrizAxB[i, j]}\t");
                 }
             }
-            Console.ReadKey();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("-----FIBONACCI-----");
+            Console.WriteLine();
+            Estudiante estudianteMatri = new Estudiante();
+            Console.ForegroundColor = ConsoleColor.White;
+            estudiante.Fibonacci(valores);
 
-           
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine();
+            Console.WriteLine("---------------HILOS---------------");
+            int numerosHilos = 0;
+            //Crea multiples hilos
+            for (numerosHilos = 0; numerosHilos < 5; numerosHilos++)
+            {
+                Thread hiloPrimero = new Thread(HiloPrincipal);
+                hiloPrimero.Start(numerosHilos);
+            }
+
+            //Primer Hilo
+            int numero = 0;
+            while (valores)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Acción realizada desde el Hilo 1 - número : {0}", numero);
+                numero++;
+
+                if (numero == 15)
+                    valores = false;
+            }
+
+
+        }
+        // Hilo/multiple
+        static void HiloPrincipal(object entrada)
+        {
+            int incrementar = 0;
+            while (valores)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Acción realizada desde el Hilo {0} con {1}", entrada, incrementar);
+                incrementar++;
+            }
         }
 
     }
 }
-
