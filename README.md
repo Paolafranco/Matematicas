@@ -3,7 +3,7 @@
 * El Primer Deber consiste en una Aplicacion Web 
 * El Segundo consiste en una Consola que a su ves se conecta con una base de datos 
 * PROGRAMACIÓN  ORIENTADA A OBJETOS EN C#
-* Tienda de Tecnología
+* Matriculas Estudiantes
 
 Realice un programa de ventas tecnológicas, el cual contiene clases, metodos y atributos todo esto lo realice en Programación Orientada a Objetos en C#.
 
